@@ -18,3 +18,12 @@ export const Addbooks = (newBook) => {
     localStorage.setItem('books', JSON.stringify(firstBookData))
   }
 }
+
+export const fixBooks = (newBook, id) => {
+  const formattedNewBook = {
+    ...booksJson[id],
+    ...newBook
+  }
+  booksJson[id] = formattedNewBook;
+  localStorage.setItem('books', JSON.stringify(booksJson))
+}
